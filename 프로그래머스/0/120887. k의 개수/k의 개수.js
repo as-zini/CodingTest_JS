@@ -1,3 +1,23 @@
+function solution(i,j,k){
+    var count = 0
+    var stringJ = String(j)
+    for(let x = i;x<=j;x++){
+        String(x).split("").forEach((el) => {
+            count = el === stringJ ? count += 1 : count
+        })
+    }
+    return count
+}
+
+
+
+
+
+
+
+
+
+
 // function solution(i, j, k) {
 //     var answer = 0;
 //     for(let x = i; x <= j; x++){
