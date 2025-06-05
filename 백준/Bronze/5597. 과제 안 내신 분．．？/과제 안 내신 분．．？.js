@@ -1,19 +1,9 @@
-const fs = require("fs");
-const input = fs.readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n")
-  .map(Number);
+const fs = require('fs');
 
-const present = Array(31).fill(false);
-for (const num of input) {
-  present[num] = true;
-}
+const input = fs.readFileSync('/dev/stdin',"utf8").split("\n").map(Number);
 
-const missing = [];
-for (let i = 1; i <= 30; i++) {
-  if (!present[i]) missing.push(i);
-}
-
-missing.sort((a, b) => a - b);
-console.log(missing[0]);
-console.log(missing[1]);
+const arr = new Array(30).fill(false);
+input.forEach((el) => {
+  arr[el-1] = true;
+})
+console.log(`${arr.indexOf(false)+1}\n${arr.lastIndexOf(false)+1}`)
